@@ -31,7 +31,7 @@ public class GraphServiceImpl implements GraphService {
                 .newEmbeddedDatabase(neoStoreDir);
 
         try (Transaction tx = graphDatabaseService.beginTx()) {
-            index = graphDatabaseService.index().forNodes("index");
+            index = graphDatabaseService.index().forNodes("user");
             tx.success();
         }
     }

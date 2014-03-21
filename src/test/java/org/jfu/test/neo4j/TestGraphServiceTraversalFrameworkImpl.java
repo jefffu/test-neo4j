@@ -11,8 +11,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TestGraphService {
-    private static Logger logger = LoggerFactory.getLogger(TestGraphService.class);
+public class TestGraphServiceTraversalFrameworkImpl {
+    private static Logger logger = LoggerFactory.getLogger(TestGraphServiceTraversalFrameworkImpl.class);
 
     private GraphService graphService;
     private String neoStoreDir = "neoStore";
@@ -50,15 +50,21 @@ public class TestGraphService {
 
     @Test
     public void test() {
+        long cost = System.currentTimeMillis();
         test1stDegreeFriends();
+        logger.debug("test1stDegreeFriends() cost "+(System.currentTimeMillis() - cost)+" ms.");
 
         test2ndDegreeFriends();
+        logger.debug("test2ndDegreeFriends() cost "+(System.currentTimeMillis() - cost)+" ms.");
 
         test3rdDegreeFriends();
+        logger.debug("test3rdDegreeFriends() cost "+(System.currentTimeMillis() - cost)+" ms.");
 
         testDistance();
+        logger.debug("testDistance() cost "+(System.currentTimeMillis() - cost)+" ms.");
 
         testShortestPath();
+        logger.debug("testShortestPath() cost "+(System.currentTimeMillis() - cost)+" ms.");
     }
 
     private void test1stDegreeFriends() {
